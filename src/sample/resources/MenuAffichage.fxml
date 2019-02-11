@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+      <MenuBar>
+         <menus>
+            <Menu mnemonicParsing="false" text="Accueil">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Accueil" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Menu">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Menu" />
+                  <MenuItem mnemonicParsing="false" text="Créer un Menu" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Consommation">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Consommation" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Liste de Course">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Liste de Course" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Partage">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Partage" />
+              </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <TableView prefHeight="634.0" prefWidth="1280.0">
+         <columns>
+            <TableColumn prefWidth="75.0" text="Nom Menu" />
+            <TableColumn prefWidth="172.0" text="Entrées" />
+            <TableColumn prefWidth="184.0" text="Plats" />
+            <TableColumn prefWidth="208.0" text="Dessert" />
+         </columns>
+      </TableView>
+      <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="1280.0" text="Ajouter un Menu" />
+  </children>
+</VBox>

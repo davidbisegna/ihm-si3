@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+      <MenuBar>
+         <menus>
+            <Menu mnemonicParsing="false" text="Accueil">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Accueil" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Menu">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Menu" />
+                  <MenuItem mnemonicParsing="false" text="Créer un Menu" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Consommation">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Consommation" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Liste de Course">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Liste de Course" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Partage">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Partage" />
+              </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <SplitPane dividerPositions="0.29797979797979796" prefHeight="374.0" prefWidth="600.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <Circle accessibleRole="BUTTON" fill="#c52222" layoutX="88.0" layoutY="77.0" radius="52.0" stroke="BLACK" strokeType="INSIDE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Circle>
+                        <Label accessibleRole="BUTTON" layoutX="43.0" layoutY="77.0" text="Nouveau Repas" textFill="WHITE">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <Label accessibleRole="BUTTON" layoutX="75.0" layoutY="35.0" text="+" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="35.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="35.0" layoutX="14.0" layoutY="144.0" stroke="BLACK" strokeType="INSIDE" width="151.0" />
+                        <Label layoutX="47.0" layoutY="152.0" text="Prochain Repas" />
+                        <Label layoutX="13.0" layoutY="203.0" text="Suggestion peu calorique">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                        <RadioButton layoutX="145.0" layoutY="202.0" mnemonicParsing="false" />
+                        <Label layoutX="13.0" layoutY="229.0" text="Suggestion peu coûteux">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                        <RadioButton layoutX="145.0" layoutY="228.0" mnemonicParsing="false" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="35.0" layoutX="13.0" layoutY="290.0" stroke="BLACK" strokeType="INSIDE" width="151.0" />
+                        <Label layoutX="32.0" layoutY="299.0" text="Suggestion de Menu" />
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="35.0" stroke="BLACK" strokeType="INSIDE" width="82.0" />
+                        <Label layoutX="30.0" layoutY="9.0" text="Jour" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="35.0" layoutX="112.0" stroke="BLACK" strokeType="INSIDE" width="82.0" />
+                        <Label layoutX="130.0" layoutY="9.0" text="Semaine" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="35.0" layoutX="227.0" stroke="BLACK" strokeType="INSIDE" width="82.0" />
+                        <Label layoutX="255.0" layoutY="9.0" text="Mois" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="35.0" layoutX="336.0" stroke="BLACK" strokeType="INSIDE" width="82.0" />
+                        <Label layoutX="360.0" layoutY="9.0" text="Année" />
+                        <GridPane gridLinesVisible="true" layoutY="35.0" prefHeight="338.0" prefWidth="418.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="204.20001220703125" minWidth="10.0" prefWidth="59.71428571428571" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="334.59996795654297" minWidth="10.0" prefWidth="59.71428571428571" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="334.59996795654297" minWidth="10.0" prefWidth="59.71428571428571" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="334.59996795654297" minWidth="10.0" prefWidth="59.71428571428571" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="334.59996795654297" minWidth="10.0" prefWidth="59.71428571428571" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="334.59996795654297" minWidth="10.0" prefWidth="59.71428571428571" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="334.59996795654297" minWidth="10.0" prefWidth="59.71428571428571" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="105.4" minHeight="10.0" prefHeight="56.33333333333333" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="187.79998626708985" minHeight="10.0" prefHeight="56.33333333333333" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="202.40003051757816" minHeight="0.0" prefHeight="56.33333333333333" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="202.40003051757816" minHeight="10.0" prefHeight="56.33333333333333" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="245.6000549316406" minHeight="10.0" prefHeight="56.33333333333333" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="202.40003051757816" minHeight="10.0" prefHeight="56.33333333333333" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="30" textFill="#00000080" />
+                              <Label text="31" textFill="#00000080" GridPane.columnIndex="1" />
+                              <Label text="1" GridPane.columnIndex="2" />
+                              <Label text="2" GridPane.columnIndex="3" />
+                              <Label text="3" GridPane.columnIndex="4" />
+                              <Label text="4" GridPane.columnIndex="5" />
+                              <Label text="5" GridPane.columnIndex="6" />
+                              <Label text="6" GridPane.rowIndex="1" />
+                              <Label text="7" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label text="8" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <Label text="9" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <Label text="10" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                              <Label text="11" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                              <Label text="12" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                              <Label text="13" GridPane.rowIndex="2" />
+                              <Label text="14" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label text="15" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <Label text="16" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              <Label text="17" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                              <Label text="18" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                              <Label text="19" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+                              <Label text="20" GridPane.rowIndex="3" />
+                              <Label text="21" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label text="22" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                              <Label text="23" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                              <Label text="24" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                              <Label text="25" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                              <Label text="26" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+                              <Label text="27" GridPane.rowIndex="4" />
+                              <Label text="28" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label text="29" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                              <Label text="30" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                              <Label text="31" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                              <Label text="1" textFill="#00000080" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+                              <Label text="2" textFill="#00000080" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+                              <Label text="3" textFill="#00000080" GridPane.rowIndex="5" />
+                              <Label text="4" textFill="#00000080" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <Label text="5" textFill="#00000080" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                              <Label text="6" textFill="#00000080" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                              <Label text="7" textFill="#00000080" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                              <Label text="8" textFill="#00000080" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+                              <Label text="9" textFill="#00000080" GridPane.columnIndex="6" GridPane.rowIndex="5" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </children></AnchorPane>
+  </children>
+</VBox>
