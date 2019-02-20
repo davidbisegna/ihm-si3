@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
@@ -10,15 +11,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
   <children>
-      <MenuBar>
+      <MenuBar prefHeight="25.0" prefWidth="1287.0">
          <menus>
             <Menu mnemonicParsing="false" text="Accueil">
               <items>
@@ -50,60 +52,102 @@
       </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <SplitPane dividerPositions="0.29797979797979796" prefHeight="374.0" prefWidth="600.0">
+            <SplitPane dividerPositions="0.29797979797979796" prefHeight="696.0" prefWidth="1282.0">
               <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="629.0" prefWidth="469.0">
                      <children>
-                        <Circle accessibleRole="BUTTON" fill="#c52222" layoutX="88.0" layoutY="77.0" radius="52.0" stroke="BLACK" strokeType="INSIDE">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Circle>
-                        <Label accessibleRole="BUTTON" layoutX="43.0" layoutY="77.0" text="Nouveau Repas" textFill="WHITE">
-                           <font>
-                              <Font size="13.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Label>
-                        <Label accessibleRole="BUTTON" layoutX="75.0" layoutY="35.0" text="+" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="35.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Label>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="35.0" layoutX="14.0" layoutY="144.0" stroke="BLACK" strokeType="INSIDE" width="151.0" />
-                        <Label layoutX="47.0" layoutY="152.0" text="Prochain Repas" />
-                        <Label layoutX="13.0" layoutY="203.0" text="Suggestion peu calorique">
-                           <font>
-                              <Font size="11.0" />
-                           </font>
-                        </Label>
-                        <RadioButton layoutX="145.0" layoutY="202.0" mnemonicParsing="false" />
-                        <Label layoutX="13.0" layoutY="229.0" text="Suggestion peu coûteux">
-                           <font>
-                              <Font size="11.0" />
-                           </font>
-                        </Label>
-                        <RadioButton layoutX="145.0" layoutY="228.0" mnemonicParsing="false" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="35.0" layoutX="13.0" layoutY="290.0" stroke="BLACK" strokeType="INSIDE" width="151.0" />
-                        <Label layoutX="32.0" layoutY="299.0" text="Suggestion de Menu" />
+                        <VBox layoutX="41.0" layoutY="432.0" prefHeight="152.0" prefWidth="323.0">
+                           <children>
+                              <HBox prefHeight="76.0" prefWidth="323.0">
+                                 <children>
+                                    <Label prefHeight="32.0" prefWidth="248.0" text="Suggestion peu coûteuse">
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font>
+                                    </Label>
+                                    <RadioButton mnemonicParsing="false" style="-fx-translate-y: 10px; -fx-translate-x: 25px;" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="131.0" prefWidth="307.0">
+                                 <children>
+                                    <Label prefHeight="32.0" prefWidth="252.0" text="Suggestion peu calorique">
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font>
+                                    </Label>
+                                    <RadioButton mnemonicParsing="false" style="-fx-translate-y: 10px; -fx-translate-x: 21px;" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <HBox layoutX="114.0" layoutY="65.0" prefHeight="152.0" prefWidth="257.0">
+                           <children>
+                              <Circle accessibleRole="BUTTON" fill="#c52222" radius="76.0" stroke="BLACK" strokeType="INSIDE">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Circle>
+                              <Label accessibleRole="BUTTON" prefHeight="64.0" prefWidth="47.0" style="-fx-translate-x: -93px; -fx-translate-y: 20px;" text="+" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="43.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Label>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-translate-x: -162px; -fx-translate-y: 80px;" text="Nouveau Repas" wrappingWidth="105.13671875">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="66.0" layoutY="564.0" prefHeight="64.0" prefWidth="248.0" style="-fx-border-width: 1px; -fx-border-color: black; -fx-border-radius: 10px;">
+                           <children>
+                              <Label prefHeight="30.0" prefWidth="189.0" text="Suggestion de Menu">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="67.0" layoutY="297.0" prefHeight="100.0" prefWidth="245.0" style="-fx-border-width: 1px; -fx-border-color: black; -fx-border-radius: 10px;">
+                           <children>
+                              <Label text="Prochain Repas">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </HBox>
                      </children>
                   </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="694.0" prefWidth="890.0">
                      <children>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="35.0" stroke="BLACK" strokeType="INSIDE" width="82.0" />
-                        <Label layoutX="30.0" layoutY="9.0" text="Jour" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="35.0" layoutX="112.0" stroke="BLACK" strokeType="INSIDE" width="82.0" />
-                        <Label layoutX="130.0" layoutY="9.0" text="Semaine" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="35.0" layoutX="227.0" stroke="BLACK" strokeType="INSIDE" width="82.0" />
-                        <Label layoutX="255.0" layoutY="9.0" text="Mois" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="35.0" layoutX="336.0" stroke="BLACK" strokeType="INSIDE" width="82.0" />
-                        <Label layoutX="360.0" layoutY="9.0" text="Année" />
-                        <GridPane gridLinesVisible="true" layoutY="35.0" prefHeight="338.0" prefWidth="418.0">
+                        <HBox alignment="CENTER" layoutX="183.0" prefHeight="35.0" prefWidth="117.0" style="-fx-border-color: black; -fx-border-radius: 2px;">
+                           <children>
+                              <Label prefHeight="17.0" prefWidth="41.0" style="-fx-translate-x: 8px;" text="Jour" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="331.0" prefHeight="35.0" prefWidth="117.0" style="-fx-border-color: black; -fx-border-radius: 2px;">
+                           <children>
+                              <Label prefHeight="17.0" prefWidth="66.0" style="-fx-translate-x: 7px;" text="Semaine" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="470.0" prefHeight="35.0" prefWidth="117.0" style="-fx-border-color: black; -fx-border-radius: 2px;">
+                           <children>
+                              <Label prefHeight="17.0" prefWidth="46.0" style="-fx-translate-x: 7px;" text="Mois" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="620.0" prefHeight="35.0" prefWidth="117.0" style="-fx-border-color: black; -fx-border-radius: 2px;">
+                           <children>
+                              <Label prefHeight="17.0" prefWidth="51.0" style="-fx-translate-x: 6px;" text="Année" />
+                           </children>
+                        </HBox>
+                        <GridPane gridLinesVisible="true" layoutY="35.0" prefHeight="658.0" prefWidth="896.0">
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="204.20001220703125" minWidth="10.0" prefWidth="59.71428571428571" />
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="334.59996795654297" minWidth="10.0" prefWidth="59.71428571428571" />
