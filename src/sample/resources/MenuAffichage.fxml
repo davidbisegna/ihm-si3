@@ -42,10 +42,10 @@
       </MenuBar>
       <TableView id="table_menus" prefHeight="668.0" prefWidth="1280.0">
          <columns>
-            <TableColumn prefWidth="75.0" text="Nom Menu" />
-            <TableColumn prefWidth="172.0" text="Entrées" />
-            <TableColumn prefWidth="184.0" text="Plats" />
-            <TableColumn prefWidth="208.0" text="Dessert" />
+            <TableColumn prefWidth="222.0" text="Nom Menu" />
+            <TableColumn prefWidth="351.0" text="Entrées" />
+            <TableColumn prefWidth="337.0" text="Plats" />
+            <TableColumn prefWidth="369.0" text="Dessert" />
          </columns>
       </TableView>
       <Button id="add_menu_button" mnemonicParsing="false" prefHeight="27.0" prefWidth="1280.0" text="Ajouter un Menu" />
