@@ -18,7 +18,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
   <children>
       <MenuBar prefHeight="25.0" prefWidth="1287.0">
          <menus>
@@ -65,7 +65,7 @@
                                           <Font size="22.0" />
                                        </font>
                                     </Label>
-                                    <RadioButton mnemonicParsing="false" style="-fx-translate-y: 10px; -fx-translate-x: 25px;" />
+                                    <RadioButton id="cheap_suggestion_rbutton" mnemonicParsing="false" style="-fx-translate-y: 10px; -fx-translate-x: 25px;" />
                                  </children>
                               </HBox>
                               <HBox prefHeight="131.0" prefWidth="307.0">
@@ -75,19 +75,19 @@
                                           <Font size="22.0" />
                                        </font>
                                     </Label>
-                                    <RadioButton mnemonicParsing="false" style="-fx-translate-y: 10px; -fx-translate-x: 21px;" />
+                                    <RadioButton id="healthy_suggestion_rbutton" mnemonicParsing="false" style="-fx-translate-y: 10px; -fx-translate-x: 21px;" />
                                  </children>
                               </HBox>
                            </children>
                         </VBox>
                         <HBox layoutX="114.0" layoutY="65.0" prefHeight="152.0" prefWidth="257.0">
                            <children>
-                              <Circle accessibleRole="BUTTON" fill="#c52222" radius="76.0" stroke="BLACK" strokeType="INSIDE">
+                              <Circle id="button_new_meal" accessibleRole="BUTTON" fill="#c52222" radius="76.0" stroke="BLACK" strokeType="INSIDE">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Circle>
-                              <Label accessibleRole="BUTTON" prefHeight="64.0" prefWidth="47.0" style="-fx-translate-x: -93px; -fx-translate-y: 20px;" text="+" textFill="WHITE">
+                              <Label id="icon_new_meal" accessibleRole="BUTTON" prefHeight="64.0" prefWidth="47.0" style="-fx-translate-x: -93px; -fx-translate-y: 20px;" text="+" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="43.0" />
                                  </font>
@@ -95,14 +95,14 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Label>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-translate-x: -162px; -fx-translate-y: 80px;" text="Nouveau Repas" wrappingWidth="105.13671875">
+                              <Text id="text_new_meal" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-translate-x: -162px; -fx-translate-y: 80px;" text="Nouveau Repas" wrappingWidth="105.13671875">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Text>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" layoutX="66.0" layoutY="564.0" prefHeight="64.0" prefWidth="248.0" style="-fx-border-width: 1px; -fx-border-color: black; -fx-border-radius: 10px;">
+                        <HBox id="menu_suggestion_button" alignment="CENTER" layoutX="66.0" layoutY="564.0" prefHeight="64.0" prefWidth="248.0" style="-fx-border-width: 1px; -fx-border-color: black; -fx-border-radius: 10px;">
                            <children>
                               <Label prefHeight="30.0" prefWidth="189.0" text="Suggestion de Menu">
                                  <font>
@@ -111,7 +111,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" layoutX="67.0" layoutY="297.0" prefHeight="100.0" prefWidth="245.0" style="-fx-border-width: 1px; -fx-border-color: black; -fx-border-radius: 10px;">
+                        <HBox id="next_meal_button" alignment="CENTER" layoutX="67.0" layoutY="297.0" prefHeight="100.0" prefWidth="245.0" style="-fx-border-width: 1px; -fx-border-color: black; -fx-border-radius: 10px;">
                            <children>
                               <Label text="Prochain Repas">
                                  <font>
@@ -127,22 +127,22 @@
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="694.0" prefWidth="890.0">
                      <children>
-                        <HBox alignment="CENTER" layoutX="183.0" prefHeight="35.0" prefWidth="117.0" style="-fx-border-color: black; -fx-border-radius: 2px;">
+                        <HBox id="calendar_day_button" alignment="CENTER" layoutX="183.0" prefHeight="35.0" prefWidth="117.0" style="-fx-border-color: black; -fx-border-radius: 2px;">
                            <children>
                               <Label prefHeight="17.0" prefWidth="41.0" style="-fx-translate-x: 8px;" text="Jour" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" layoutX="331.0" prefHeight="35.0" prefWidth="117.0" style="-fx-border-color: black; -fx-border-radius: 2px;">
+                        <HBox id="calendar_week_button" alignment="CENTER" layoutX="331.0" prefHeight="35.0" prefWidth="117.0" style="-fx-border-color: black; -fx-border-radius: 2px;">
                            <children>
                               <Label prefHeight="17.0" prefWidth="66.0" style="-fx-translate-x: 7px;" text="Semaine" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" layoutX="470.0" prefHeight="35.0" prefWidth="117.0" style="-fx-border-color: black; -fx-border-radius: 2px;">
+                        <HBox id="calendar_month_button" alignment="CENTER" layoutX="470.0" prefHeight="35.0" prefWidth="117.0" style="-fx-border-color: black; -fx-border-radius: 2px;">
                            <children>
                               <Label prefHeight="17.0" prefWidth="46.0" style="-fx-translate-x: 7px;" text="Mois" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" layoutX="620.0" prefHeight="35.0" prefWidth="117.0" style="-fx-border-color: black; -fx-border-radius: 2px;">
+                        <HBox id="calendar_year_button" alignment="CENTER" layoutX="620.0" prefHeight="35.0" prefWidth="117.0" style="-fx-border-color: black; -fx-border-radius: 2px;">
                            <children>
                               <Label prefHeight="17.0" prefWidth="51.0" style="-fx-translate-x: 6px;" text="Année" />
                            </children>

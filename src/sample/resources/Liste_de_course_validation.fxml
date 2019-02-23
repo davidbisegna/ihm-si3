@@ -75,7 +75,7 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="353.0" prefWidth="1280.0">
                      <children>
-                        <TextField prefHeight="25.0" prefWidth="291.0" style="-fx-max-width: 150px;" />
+                        <TextField id="nb_day_course" prefHeight="25.0" prefWidth="291.0" style="-fx-max-width: 150px;" />
                     <Label alignment="CENTER" style="&#10;" text="Jours" textAlignment="CENTER" textFill="#404040" wrapText="false">
                       <font>
                         <Font size="27.0" />
@@ -85,7 +85,7 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="337.0" prefWidth="1280.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="138.0" text="Valider">
+                        <Button id="generate_list_button" mnemonicParsing="false" prefHeight="39.0" prefWidth="138.0" text="Valider">
                            <font>
                               <Font size="18.0" />
                            </font>
