@@ -1,44 +1,60 @@
 package sample;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-import static sample.View.XML_ACCUEIL;
-import static sample.View.XML_CREERMENU;
-import static sample.View.XML_MENUAFFICHAGE;
+import static sample.View.*;
 
 public class Controller {
 
-    public void load_accueil(ActionEvent event) throws IOException{
-        Parent accueil_parent = FXMLLoader.load(getClass().getResource(XML_ACCUEIL));
-        Scene accueil = new Scene(accueil_parent);
+    @FXML
+    private Button menu_accueil;
+
+    @FXML
+    private Button menu_listedecourse;
+
+    @FXML
+    private Button menu_menus;
+
+    @FXML
+    public void initialize(){
+        menu_accueil.setOnAction(createLoadPageEvent(XML_ACCUEIL));
+        menu_listedecourse.setOnAction(createLoadPageEvent(XML_LISTECOURSEVALIDATION));
+        menu_menus.setOnAction(createLoadPageEvent(XML_MENUAFFICHAGE));
+    }
+
+    private void loadPage(ActionEvent event, String pagePath) throws IOException{
+        Parent pageParent = FXMLLoader.load(getClass().getResource(pagePath));
+        Scene newPage = new Scene(pageParent);
 
         Stage window = (Stage) ((javafx.scene.Node)event.getSource()).getScene().getWindow();
-        window.setScene(accueil);
+        window.setScene(newPage);
         window.show();
     }
 
-    public void load_menu_affichage(ActionEvent event) throws IOException {
-        Parent menus_parent = FXMLLoader.load(getClass().getResource(XML_MENUAFFICHAGE));
-        Scene menus = new Scene(menus_parent);
-
-        Stage window = (Stage) ((javafx.scene.Node)event.getSource()).getScene().getWindow();
-        window.setScene(menus);
-        window.show();
+    public void loadCreateMenuPage(ActionEvent event) throws IOException{
+        loadPage(event, XML_CREERMENU);
     }
 
-    public void load_creer_menu(ActionEvent event) throws IOException{
-        Parent creer_menu_parent = FXMLLoader.load(getClass().getResource(XML_CREERMENU));
-        Scene creer_menu = new Scene(creer_menu_parent);
-
-        Stage window = (Stage) ((javafx.scene.Node)event.getSource()).getScene().getWindow();
-        window.setScene(creer_menu);
-        window.show();
+    private EventHandler<ActionEvent> createLoadPageEvent(String pagePath){
+        return new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event){
+                try{
+                    loadPage(event, pagePath);
+                } catch (IOException e){
+                    System.err.println("Error : " + e);
+                }
+            }
+        };
     }
 }
