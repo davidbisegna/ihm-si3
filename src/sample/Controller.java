@@ -4,20 +4,51 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
+import sample.models.ModelListOfMenus;
+import sample.models.ModelMenu;
+
 
 import java.io.IOException;
 
-import static sample.View.*;
+import static sample.ViewMenus.*;
 
 public class Controller {
 
     @FXML
     private Button menu_accueil;
+
+    @FXML
+    private TextField nom_menu;
+
+    @FXML
+    private TextField entree;
+
+    @FXML
+    private TextField plat;
+
+    @FXML
+    private TextField dessert;
+
+    @FXML
+    private TextField prix;
+
+    @FXML
+    private TextField calories;
+
+    @FXML
+    private Button enregistrer_menu;
+
+
+    private ModelListOfMenus modelListeMenus;
+
+
+    @FXML
+    private ListView<ModelMenu> liste_menus2;
 
     @FXML
     private Button menu_listedecourse;
@@ -30,6 +61,11 @@ public class Controller {
         menu_accueil.setOnAction(createLoadPageEvent(XML_ACCUEIL));
         menu_listedecourse.setOnAction(createLoadPageEvent(XML_LISTECOURSEVALIDATION));
         menu_menus.setOnAction(createLoadPageEvent(XML_MENUAFFICHAGE));
+
+        modelListeMenus = new ModelListOfMenus();
+
+        //récupère l'observable
+        liste_menus2 = new ListView<>(modelListeMenus.getMenus());
     }
 
     private void loadPage(ActionEvent event, String pagePath) throws IOException{
@@ -57,4 +93,27 @@ public class Controller {
             }
         };
     }
+
+
+    public ListView getMenusListView(){
+        return liste_menus2;
+    }
+    public void add_menu(ActionEvent event) throws IOException{
+
+        String nom = nom_menu.getText();
+        String textEntree = entree.getText();
+        String textPlat = plat.getText();
+        String textDessert = dessert.getText();
+        ModelMenu menu = new ModelMenu(nom,textEntree,textPlat,textDessert);
+        modelListeMenus.add_menu(menu);
+
+        //System.out.println(liste_menus2.getItems());
+        liste_menus2.setItems(modelListeMenus.getMenus());
+
+        //JSONObject menus = new JSONObject();
+
+    }
+
+
+
 }
