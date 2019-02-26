@@ -1,10 +1,20 @@
 {
-  "Menu": [
+  "Menus": [
     {
-      "NomMenu": "NomMenu_1",
-      "Entree":"Entree_1",
-      "Plat": "Plat_1",
-      "Dessert": "Dessert_1"
+      "NomMenu": "Repas Italien",
+      "Entree":"Tomate Mozza",
+      "Plat": "Polenta",
+      "Dessert": "Tiramisu",
+      "Prix": 15.5,
+      "Calories": 500
+    },
+    {
+      "NomMenu": "Repas pas bon",
+      "Entree":"Légumes froid",
+      "Plat": "Steak trop cuit",
+      "Dessert": "Rien",
+      "Prix": 6.0,
+      "Calories": 200
     }
   ]
 }

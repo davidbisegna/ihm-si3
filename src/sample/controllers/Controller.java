@@ -8,7 +8,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import sample.models.ModelListOfMenus;
 import sample.ViewMenus;
 
 
@@ -25,17 +24,12 @@ public class Controller {
     @FXML
     protected Button menu_menus;
 
-    protected ModelListOfMenus modelListeMenus;
-
-
 
     @FXML
     public void initialize(){
         menu_accueil.setOnAction(createLoadPageEvent("../"+ViewMenus.XML_ACCUEIL));
         menu_listedecourse.setOnAction(createLoadPageEvent("../"+ViewMenus.XML_LISTECOURSEVALIDATION));
         menu_menus.setOnAction(createLoadPageEvent("../"+ViewMenus.XML_MENUAFFICHAGE));
-
-        modelListeMenus = new ModelListOfMenus();
     }
 
     private void loadPage(ActionEvent event, String pagePath) throws IOException{
@@ -63,8 +57,4 @@ public class Controller {
             }
         };
     }
-
-    /*public ListView getMenusListView(){
-        return liste_menus2;
-    }*/
 }

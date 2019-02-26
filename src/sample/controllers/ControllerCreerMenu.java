@@ -32,9 +32,6 @@ public class ControllerCreerMenu extends Controller {
     private Button enregistrer_menu;
 
 
-    //@FXML
-    //private ListView<ModelMenu> liste_menus2;
-
     public void initialize(){
         super.initialize();
         enregistrer_menu.setOnAction(new EventHandler<ActionEvent>() {
@@ -45,16 +42,4 @@ public class ControllerCreerMenu extends Controller {
         });
 
     }
-
-
-    /*public void add_menu(){
-        String nom = nom_menu.getText();
-        String textEntree = entree.getText();
-        String textPlat = plat.getText();
-        String textDessert = dessert.getText();
-        ModelMenu menu = new ModelMenu(nom,textEntree,textPlat,textDessert);
-        modelListeMenus.add_menu(menu);
-
-        //liste_menus2.setItems(modelListeMenus.getMenus());
-    }*/
 }
