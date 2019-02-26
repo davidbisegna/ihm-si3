@@ -1,20 +1,16 @@
 package sample;
 
-import javafx.scene.Parent;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
+import sample.controllers.Controller;
 import sample.models.ModelListOfMenus;
 
-import javafx.util.Callback;
 
-
-class ViewMenus {
-    static final String XML_ACCUEIL = "resources/Accueil_test.fxml";
-    static final String XML_CREERMENU = "resources/CreerMenu.fxml";
-    static final String XML_LISTECOURSEVALIDATION = "resources/Liste_de_course_validation.fxml";
-    static final String XML_MENUAFFICHAGE = "resources/MenuAffichage.fxml";
-    static final int WIDTH = 1280;
-    static final int HEIGHT = 720;
+public class ViewMenus {
+    public static final String XML_ACCUEIL = "resources/Accueil_test.fxml";
+    public static final String XML_CREERMENU = "resources/CreerMenu.fxml";
+    public static final String XML_LISTECOURSEVALIDATION = "resources/Liste_de_course_validation.fxml";
+    public static final String XML_MENUAFFICHAGE = "resources/MenuAffichage.fxml";
+    public static final int WIDTH = 1280;
+    public static final int HEIGHT = 720;
 
     private static int rangeSelectedItem = -1;
     private static ModelListOfMenus model;
@@ -27,7 +23,7 @@ class ViewMenus {
     void init(ModelListOfMenus model, Controller controller){
         ViewMenus.model = model;
         ViewMenus.controller = controller;
-        controller.getMenusListView().setItems(model.getMenus());
+        //controller.getMenusListView().setItems(model.getMenus());
     }
 
     /*private void adaptItems(ListView listView){

@@ -1,23 +1,22 @@
 package sample.models;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 
 public class ModelMenu {
     private StringProperty nomMenu;
     private StringProperty entree;
     private StringProperty plat;
     private StringProperty dessert;
-    private IntegerProperty prix;
+    private DoubleProperty prix;
     private IntegerProperty calories;
 
-    public ModelMenu(String nomMenu, String entree, String plat, String dessert){
+    public ModelMenu(String nomMenu, String entree, String plat, String dessert, double prix, int calories){
         this.nomMenu = new SimpleStringProperty(nomMenu);
         this.entree = new SimpleStringProperty(entree);
         this.plat = new SimpleStringProperty(plat);
         this.dessert = new SimpleStringProperty(dessert);
+        this.prix = new SimpleDoubleProperty(prix);
+        this.calories = new SimpleIntegerProperty(calories);
     }
 
     public String getNomMenu() {
@@ -28,6 +27,11 @@ public class ModelMenu {
         this.nomMenu = new SimpleStringProperty(nomMenu);
     }
 
+    public StringProperty nomMenuProperty(){
+        return nomMenu;
+    }
+
+
     public String getEntree() {
         return entree.get();
     }
@@ -35,6 +39,11 @@ public class ModelMenu {
     public void setEntree(String entree) {
         this.entree = new SimpleStringProperty(entree);
     }
+
+    public StringProperty entreeProperty(){
+        return entree;
+    }
+
 
     public String getPlat() {
         return plat.get();
@@ -44,6 +53,11 @@ public class ModelMenu {
         this.plat  = new SimpleStringProperty(plat);
     }
 
+    public StringProperty platProperty(){
+        return plat;
+    }
+
+
     public String getDessert() {
         return dessert.get();
     }
@@ -52,13 +66,23 @@ public class ModelMenu {
         this.dessert  = new SimpleStringProperty(dessert);
     }
 
-    public int getPrix() {
+    public StringProperty dessertProperty(){
+        return dessert;
+    }
+
+
+    public double getPrix() {
         return prix.get();
     }
 
-    public void setPrix(int prix) {
-        this.prix = new SimpleIntegerProperty(prix);
+    public void setPrix(double prix) {
+        this.prix = new SimpleDoubleProperty(prix);
     }
+
+    public DoubleProperty prixProperty(){
+        return prix;
+    }
+
 
     public int getCalories() {
         return calories.get();
@@ -68,9 +92,13 @@ public class ModelMenu {
         this.calories = new SimpleIntegerProperty(calories);
     }
 
+    public IntegerProperty caloriesProperty(){
+        return calories;
+    }
+
     @Override
     public String toString(){
-        return this.nomMenu+" "+this.entree+" "+this.plat+" "+this.dessert;
+        return this.nomMenu.get() + " " + this.entree.get() + " " + this.plat.get() + " " + this.dessert.get();
     }
 
 }
