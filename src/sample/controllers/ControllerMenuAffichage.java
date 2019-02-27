@@ -15,6 +15,7 @@ import sample.Main;
 import sample.models.ModelMenu;
 
 import java.awt.print.Book;
+import java.util.Optional;
 
 import static sample.ViewMenus.XML_CREERMENU;
 
@@ -64,7 +65,7 @@ public class ControllerMenuAffichage extends Controller {
 
             @Override
             public void handle(ActionEvent event) {
-                Main.listMenus.remove_menu(selectedMenu);
+                remove_selected_menu(selectedMenu);
                 selectedMenu = null;
             }
         });
@@ -96,8 +97,19 @@ public class ControllerMenuAffichage extends Controller {
     @FXML
     public void handleKeyPressed(KeyEvent event){
         if(event.getCode() == KeyCode.DELETE && !Main.listMenus.getMenus().isEmpty() && selectedMenu != null){
-            Main.listMenus.remove_menu(selectedMenu);
+            remove_selected_menu(selectedMenu);
         }
     }
 
+    public void remove_selected_menu(ModelMenu menuToDelete){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText("Suppression d'un menu");
+        alert.setContentText("Êtes vous sûr de vouloir supprimer le menu " + selectedMenu.getNomMenu() + " ?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
+            Main.listMenus.remove_menu(menuToDelete);
+        }
+    }
 }
