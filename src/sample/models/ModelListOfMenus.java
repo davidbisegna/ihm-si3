@@ -19,5 +19,9 @@ public class ModelListOfMenus {
         menus.add(menu);
     }
 
+    public void remove_menu(ModelMenu menu){
+        menus.remove(menu);
+    }
+
 
 }

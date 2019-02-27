@@ -12,9 +12,7 @@ import org.json.simple.parser.ParseException;
 import sample.models.ModelListOfMenus;
 import sample.models.ModelMenu;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +31,11 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    @Override
+    public void stop(){
+        saveMenusInJSON();
+    }
+
 
     public void initDatas(){
         List<ModelMenu> menus = getMenusFromJSON();
@@ -44,7 +47,6 @@ public class Main extends Application {
     private List<ModelMenu> getMenusFromJSON(){
         List<ModelMenu> parsedMenus= new ArrayList<>();
         try{
-            System.out.println();
             FileReader reader = new FileReader(ViewMenus.JSON_MENUS);
 
             JSONParser parser = new JSONParser();
@@ -75,6 +77,30 @@ public class Main extends Application {
         }
 
         return parsedMenus;
+    }
+
+    public void saveMenusInJSON(){
+        try{
+            FileWriter writer = new FileWriter(ViewMenus.JSON_MENUS);
+            JSONArray array = new JSONArray();
+            JSONObject menus = new JSONObject();
+            for(ModelMenu menu : listMenus.getMenus()){
+                JSONObject obj = new JSONObject();
+                obj.put("NomMenu", menu.getNomMenu());
+                obj.put("Entree", menu.getEntree());
+                obj.put("Plat", menu.getPlat());
+                obj.put("Dessert", menu.getDessert());
+                obj.put("Prix", menu.getPrix());
+                obj.put("Calories", menu.getCalories());
+                array.add(obj);
+            }
+            menus.put("Menus", array);
+            writer.write(menus.toJSONString());
+            writer.flush();
+            writer.close();
+        } catch (Exception e){
+            System.err.println("Erreur : " + e);
+        }
     }
 
     public static void main(String[] args) {

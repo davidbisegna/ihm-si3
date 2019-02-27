@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ControllerMenuAffichage">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" onKeyPressed="#handleKeyPressed" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ControllerMenuAffichage">
   <children>
       <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="35.0" prefWidth="1280.0" style="-fx-background-color: #d7d7d7;">
          <children>
