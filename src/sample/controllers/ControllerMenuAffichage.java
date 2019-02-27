@@ -4,10 +4,10 @@ import javafx.beans.Observable;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
+import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -57,6 +57,33 @@ public class ControllerMenuAffichage extends Controller {
             }
         });
 
+        ContextMenu contextMenu = new ContextMenu();
+
+        MenuItem item1 = new MenuItem("Supprimer");
+        item1.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                Main.listMenus.remove_menu(selectedMenu);
+                selectedMenu = null;
+            }
+        });
+
+        // Add MenuItem to ContextMenu
+        contextMenu.getItems().addAll(item1);
+
+        // When user right-click on Circle
+
+        liste_menus.setOnContextMenuRequested(new EventHandler<ContextMenuEvent>() {
+            @Override
+            public void handle(ContextMenuEvent event) {
+                System.out.println("coucou");
+                contextMenu.show(liste_menus, event.getScreenX(), event.getScreenY());
+            }
+        });
+
+
+
         nom_menu.setCellValueFactory(c -> c.getValue().nomMenuProperty());
         entree.setCellValueFactory(c -> c.getValue().entreeProperty());
         plat.setCellValueFactory(c -> c.getValue().platProperty());
@@ -68,7 +95,7 @@ public class ControllerMenuAffichage extends Controller {
 
     @FXML
     public void handleKeyPressed(KeyEvent event){
-        if(event.getCode() == KeyCode.DELETE && !Main.listMenus.getMenus().isEmpty()){
+        if(event.getCode() == KeyCode.DELETE && !Main.listMenus.getMenus().isEmpty() && selectedMenu != null){
             Main.listMenus.remove_menu(selectedMenu);
         }
     }
