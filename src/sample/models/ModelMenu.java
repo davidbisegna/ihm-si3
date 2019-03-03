@@ -3,8 +3,12 @@ package sample.models;
 import javafx.beans.property.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import sample.Main;
+
+import java.util.Optional;
 
 public class ModelMenu {
     private StringProperty nomMenu;
@@ -26,7 +30,16 @@ public class ModelMenu {
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                selfRemoveFromObservable();
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Confirmation");
+                alert.setHeaderText("Suppression d'un menu");
+                alert.setContentText("Êtes vous sûr de vouloir supprimer ce menu ?");
+
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.get() == ButtonType.OK){
+                    selfRemoveFromObservable();
+                }
+
             }
         });
     }
