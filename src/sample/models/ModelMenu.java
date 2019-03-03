@@ -1,6 +1,10 @@
 package sample.models;
 
 import javafx.beans.property.*;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.control.Button;
+import sample.Main;
 
 public class ModelMenu {
     private StringProperty nomMenu;
@@ -9,6 +13,7 @@ public class ModelMenu {
     private StringProperty dessert;
     private DoubleProperty prix;
     private IntegerProperty calories;
+    private Button button;
 
     public ModelMenu(String nomMenu, String entree, String plat, String dessert, double prix, int calories){
         this.nomMenu = new SimpleStringProperty(nomMenu);
@@ -17,6 +22,13 @@ public class ModelMenu {
         this.dessert = new SimpleStringProperty(dessert);
         this.prix = new SimpleDoubleProperty(prix);
         this.calories = new SimpleIntegerProperty(calories);
+        button = new Button("Supprimer");
+        button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                selfRemoveFromObservable();
+            }
+        });
     }
 
     public String getNomMenu() {
@@ -94,6 +106,18 @@ public class ModelMenu {
 
     public IntegerProperty caloriesProperty(){
         return calories;
+    }
+
+    public void setButton(Button button){
+        this.button = button;
+    }
+
+    public Button getButton(){
+        return button;
+    }
+
+    public void selfRemoveFromObservable(){
+        Main.listMenus.remove_menu(this);
     }
 
     @Override

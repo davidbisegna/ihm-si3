@@ -7,13 +7,20 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.util.Callback;
 import sample.Main;
 import sample.models.ModelMenu;
 
+import javax.xml.crypto.Data;
+import java.awt.*;
 import java.awt.print.Book;
 import java.util.Optional;
 
@@ -45,10 +52,19 @@ public class ControllerMenuAffichage extends Controller {
     private TableColumn<ModelMenu, Integer> calories;
 
     @FXML
+    private TableColumn action;
+
+    @FXML
     private Button add_menu_button;
 
     public void initialize(){
         super.initialize();
+
+        // Création de la colonne action qui contient un bouton supprimer pour chaque lign
+        action = new TableColumn("Action");
+        action.setCellValueFactory(new PropertyValueFactory<Menu,Button>("button"));
+        liste_menus.getColumns().add(action);
+
         liste_menus.setItems(Main.listMenus.getMenus());
 
         liste_menus.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
@@ -78,7 +94,6 @@ public class ControllerMenuAffichage extends Controller {
         liste_menus.setOnContextMenuRequested(new EventHandler<ContextMenuEvent>() {
             @Override
             public void handle(ContextMenuEvent event) {
-                System.out.println("coucou");
                 contextMenu.show(liste_menus, event.getScreenX(), event.getScreenY());
             }
         });

@@ -32,10 +32,10 @@ public class Controller {
         menu_menus.setOnAction(createLoadPageEvent("../"+ViewMenus.XML_MENUAFFICHAGE));
     }
 
-    private void loadPage(ActionEvent event, String pagePath) throws IOException{
+    protected void loadPage(ActionEvent event, String pagePath) throws IOException{
         Parent pageParent = FXMLLoader.load(getClass().getResource(pagePath));
         Scene newPage = new Scene(pageParent);
-
+        pageParent.getStylesheets().add(ViewMenus.CSS);
         Stage window = (Stage) ((javafx.scene.Node)event.getSource()).getScene().getWindow();
         window.setScene(newPage);
         window.show();

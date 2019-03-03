@@ -1,0 +1,18 @@
+.nav{
+    -fx-background-color:linear-gradient(to bottom, #f4f4f4, #ececed, #e5e5e5, #ddddde, #d6d6d7);
+}
+.nav Button{
+    -fx-border:none;
+    -fx-box-border: transparent;
+    -fx-background-color:linear-gradient(to bottom, #f4f4f4, #ececed, #e5e5e5, #ddddde, #d6d6d7);
+}
+
+.nav Button:hover{
+    -fx-cursor:hand;
+    -fx-background-color: #134a56;
+    -fx-text-fill:white;
+}
+
+.nav Button:focused{
+    text-decoration: none;
+}

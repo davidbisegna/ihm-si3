@@ -25,6 +25,7 @@ public class Main extends Application {
         listMenus = new ModelListOfMenus();
         initDatas();
         Parent root = FXMLLoader.load(getClass().getResource(ViewMenus.XML_ACCUEIL));
+        root.getStylesheets().add(ViewMenus.CSS);
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, ViewMenus.WIDTH, ViewMenus.HEIGHT));
 

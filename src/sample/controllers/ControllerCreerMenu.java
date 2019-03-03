@@ -7,7 +7,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import sample.Main;
+import sample.ViewMenus;
 import sample.models.ModelMenu;
+
+import java.io.IOException;
 
 public class ControllerCreerMenu extends Controller {
     @FXML
@@ -38,6 +41,11 @@ public class ControllerCreerMenu extends Controller {
             @Override
             public void handle(ActionEvent event) {
                 Main.listMenus.add_menu(new ModelMenu(nom_menu.getText(), entree.getText(), plat.getText(), dessert.getText(), Float.parseFloat(prix.getText()), Integer.parseInt(calories.getText())));
+                try {
+                    loadPage(event,"../"+ ViewMenus.XML_MENUAFFICHAGE);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
