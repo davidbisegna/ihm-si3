@@ -24,11 +24,15 @@ public class Controller {
     @FXML
     protected Button menu_menus;
 
+    @FXML
+    protected Button menu_consommation;
+
 
     @FXML
     public void initialize(){
         menu_accueil.setOnAction(createLoadPageEvent("../"+ViewMenus.XML_ACCUEIL));
         menu_listedecourse.setOnAction(createLoadPageEvent("../"+ViewMenus.XML_LISTECOURSEVALIDATION));
+        menu_consommation.setOnAction(createLoadPageEvent("../"+ViewMenus.XML_CONSOMMATION));
         menu_menus.setOnAction(createLoadPageEvent("../"+ViewMenus.XML_MENUAFFICHAGE));
     }
 

@@ -51,7 +51,7 @@ public class ControllerMenuAffichage extends Controller {
     @FXML
     private TableColumn<ModelMenu, Integer> calories;
 
-    @FXML
+
     private TableColumn action;
 
     @FXML

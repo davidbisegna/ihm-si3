@@ -12,7 +12,3 @@
     -fx-background-color: #134a56;
     -fx-text-fill:white;
 }
-
-.nav Button:focused{
-    text-decoration: none;
-}
