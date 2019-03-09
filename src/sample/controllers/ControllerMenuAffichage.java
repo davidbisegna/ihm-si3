@@ -11,10 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.ContextMenuEvent;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.input.*;
 import javafx.util.Callback;
 import sample.Main;
 import sample.models.ModelMenu;
@@ -22,6 +19,7 @@ import sample.models.ModelMenu;
 import javax.xml.crypto.Data;
 import java.awt.*;
 import java.awt.print.Book;
+import java.time.LocalDate;
 import java.util.Optional;
 
 import static sample.ViewMenus.XML_CREERMENU;
@@ -51,7 +49,6 @@ public class ControllerMenuAffichage extends Controller {
     @FXML
     private TableColumn<ModelMenu, Integer> calories;
 
-
     private TableColumn action;
 
     @FXML
@@ -59,10 +56,8 @@ public class ControllerMenuAffichage extends Controller {
 
     public void initialize(){
         super.initialize();
-
-        // Création de la colonne action qui contient un bouton supprimer pour chaque lign
         action = new TableColumn("Action");
-        action.setCellValueFactory(new PropertyValueFactory<Menu,Button>("button"));
+        // Création de la colonne action qui contient un bouton supprimer pour chaque lign
         liste_menus.getColumns().add(action);
 
         liste_menus.setItems(Main.listMenus.getMenus());
@@ -81,16 +76,16 @@ public class ControllerMenuAffichage extends Controller {
 
             @Override
             public void handle(ActionEvent event) {
-                remove_selected_menu(selectedMenu);
-                selectedMenu = null;
+                if(selectedMenu != null) {
+                    remove_selected_menu(selectedMenu);
+                }
             }
         });
 
         // Add MenuItem to ContextMenu
         contextMenu.getItems().addAll(item1);
 
-        // When user right-click on Circle
-
+        // When user right-click on a Menu
         liste_menus.setOnContextMenuRequested(new EventHandler<ContextMenuEvent>() {
             @Override
             public void handle(ContextMenuEvent event) {
@@ -99,7 +94,17 @@ public class ControllerMenuAffichage extends Controller {
         });
 
 
+        liste_menus.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                TableView table = (TableView) event.getSource();
+                selectedMenu = (ModelMenu) table.getSelectionModel().getSelectedItem();
+                System.out.println(selectedMenu);
+                contextMenu.hide();
+            }
+        });
 
+        action.setCellValueFactory(new PropertyValueFactory<ModelMenu,Button>("button"));
         nom_menu.setCellValueFactory(c -> c.getValue().nomMenuProperty());
         entree.setCellValueFactory(c -> c.getValue().entreeProperty());
         plat.setCellValueFactory(c -> c.getValue().platProperty());

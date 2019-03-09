@@ -21,6 +21,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -90,6 +91,9 @@ public class Controller {
 
             JSONArray menus = (JSONArray) jsonObject.get("Menus");
 
+            if(menus.isEmpty()){
+                return parsedMenus;
+            }
 
             for(Object o : menus){
                 JSONObject innerObj = (JSONObject) o;
@@ -99,6 +103,7 @@ public class Controller {
                 String dessert = (String) innerObj.get("Dessert");
                 Double prix = (Double) innerObj.get("Prix");
                 Long calories = (Long) innerObj.get("Calories");
+                //LocalDate date = LocalDate.parse((String) innerObj.get("Date"));
                 int parsedCalories = calories.intValue();
 
                 parsedMenus.add(new ModelMenu(nomMenu, entree, plat, dessert, prix, parsedCalories));
@@ -128,6 +133,7 @@ public class Controller {
                 obj.put("Dessert", menu.getDessert());
                 obj.put("Prix", menu.getPrix());
                 obj.put("Calories", menu.getCalories());
+                //obj.put("Date", menu.getDate().toString());
                 array.add(obj);
             }
             menus.put("Menus", array);

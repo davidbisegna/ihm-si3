@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleKeyPressed" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ControllerMenuAffichage">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleKeyPressed" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ControllerMenuAffichage">
   <children>
       <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="35.0" prefWidth="1280.0" styleClass="nav">
          <children>
@@ -19,12 +19,12 @@
       </HBox>
       <TableView fx:id="liste_menus" prefHeight="755.0" prefWidth="1280.0">
         <columns>
-          <TableColumn fx:id="nom_menu" prefWidth="213.0" text="Nom" />
-          <TableColumn fx:id="entree" prefWidth="242.0" text="Entrée" />
-            <TableColumn fx:id="plat" prefWidth="194.39993286132812" text="Plat" />
-            <TableColumn fx:id="dessert" prefWidth="239.20001220703125" text="Dessert" />
-            <TableColumn fx:id="prix" prefWidth="136.79998779296875" text="Prix" />
-            <TableColumn fx:id="calories" prefWidth="104.2666015625" text="Calories" />
+          <TableColumn fx:id="nom_menu" prefWidth="176.0" text="Nom" />
+          <TableColumn fx:id="entree" prefWidth="250.0" text="Entrée" />
+            <TableColumn fx:id="plat" prefWidth="200.0" text="Plat" />
+            <TableColumn fx:id="dessert" prefWidth="177.0" text="Dessert" />
+            <TableColumn fx:id="prix" prefWidth="125.0" text="Prix" />
+            <TableColumn fx:id="calories" prefWidth="145.0" text="Calories" />
         </columns>
       </TableView>
       <HBox alignment="CENTER" prefHeight="226.0" prefWidth="1280.0">

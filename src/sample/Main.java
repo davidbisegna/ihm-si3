@@ -29,7 +29,6 @@ public class Main extends Application {
         root.getStylesheets().add(ViewMenus.CSS);
         primaryStage.setTitle(ViewMenus.APP_NAME);
         primaryStage.setScene(new Scene(root, ViewMenus.WIDTH, ViewMenus.HEIGHT));
-
         primaryStage.show();
     }
 

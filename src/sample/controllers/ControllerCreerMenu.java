@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import sample.Main;
@@ -11,6 +12,7 @@ import sample.ViewMenus;
 import sample.models.ModelMenu;
 
 import java.io.IOException;
+import java.util.Date;
 
 public class ControllerCreerMenu extends Controller {
     @FXML
@@ -30,6 +32,9 @@ public class ControllerCreerMenu extends Controller {
 
     @FXML
     private TextField calories;
+
+    @FXML
+    private DatePicker date;
 
     @FXML
     private Button enregistrer_menu;

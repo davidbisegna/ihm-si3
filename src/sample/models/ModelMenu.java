@@ -8,6 +8,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import sample.Main;
 
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Optional;
 
 public class ModelMenu {
@@ -129,6 +132,10 @@ public class ModelMenu {
     public Button getButton(){
         return button;
     }
+
+    /*public void setDate(LocalDate date) { this.date = date; }
+
+    public LocalDate getDate() { return this.date; }*/
 
     public void selfRemoveFromObservable(){
         Main.listMenus.remove_menu(this);

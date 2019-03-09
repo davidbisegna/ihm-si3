@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ControllerCreerMenu">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ControllerCreerMenu">
    <children>
       <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="35.0" prefWidth="1280.0" styleClass="nav">
          <children>
@@ -86,12 +86,12 @@
                      <children>
                         <HBox alignment="CENTER" prefHeight="36.0" prefWidth="200.0">
                            <children>
-                              <Label prefHeight="30.0" prefWidth="68.0" text="Prix" textAlignment="CENTER">
+                              <Label prefHeight="30.0" prefWidth="51.0" text="Prix" textAlignment="CENTER">
                                  <font>
                                     <Font name="Calibri" size="25.0" />
                                  </font>
                               </Label>
-                              <TextField id="prix" fx:id="prix" prefHeight="25.0" prefWidth="94.0" style="-fx-translate-x: 30px; -fx-translate-y: 2px;" />
+                              <TextField id="prix" fx:id="prix" prefHeight="25.0" prefWidth="154.0" style="-fx-translate-x: 30px; -fx-translate-y: 2px;" />
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-translate-x: 40px; -fx-translate-y: -2px;" text="€">
                                  <font>
                                     <Font size="20.0" />
@@ -107,12 +107,12 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="36.0" prefWidth="245.0">
                            <children>
-                              <Label prefHeight="30.0" prefWidth="88.0" text="Calories" textAlignment="CENTER">
+                              <Label prefHeight="30.0" prefWidth="87.0" text="Calories" textAlignment="CENTER">
                                  <font>
                                     <Font name="Calibri" size="25.0" />
                                  </font>
                               </Label>
-                              <TextField id="calories" fx:id="calories" prefHeight="25.0" prefWidth="94.0" style="-fx-translate-x: 15px; -fx-translate-y: 2px;" />
+                              <TextField id="calories" fx:id="calories" prefHeight="25.0" prefWidth="149.0" style="-fx-translate-x: 15px; -fx-translate-y: 2px;" />
                            </children>
                            <padding>
                               <Insets top="80.0" />

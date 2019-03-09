@@ -1,6 +1,11 @@
 package sample.controllers;
 
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import sample.Main;
 import sample.models.ModelListOfMenus;
 import sample.models.ModelMenu;
@@ -10,6 +15,15 @@ import java.util.HashMap;
 public class ControllerConsommation extends Controller{
 
     private HashMap<String, Integer> theMap;
+
+    @FXML
+    private DatePicker start_date;
+
+    @FXML
+    private DatePicker end_date;
+
+    @FXML
+    private Button compute_dates_button;
 
     public void initialize(){
         super.initialize();
