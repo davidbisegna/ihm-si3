@@ -49,6 +49,7 @@ public class ControllerMenuAffichage extends Controller {
     @FXML
     private TableColumn<ModelMenu, Integer> calories;
 
+    @FXML
     private TableColumn action;
 
     @FXML
@@ -57,7 +58,7 @@ public class ControllerMenuAffichage extends Controller {
     public void initialize(){
         super.initialize();
         action = new TableColumn("Action");
-        // Création de la colonne action qui contient un bouton supprimer pour chaque lign
+        // Création de la colonne action qui contient un bouton supprimer pour chaque ligne
         liste_menus.getColumns().add(action);
 
         liste_menus.setItems(Main.listMenus.getMenus());

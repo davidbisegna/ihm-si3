@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ControllerPartage">
+    <children>
+        <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="35.0" prefWidth="1280.0" styleClass="nav">
+            <children>
+                <Button fx:id="menu_accueil" mnemonicParsing="false" prefHeight="35.0" prefWidth="93.0" text="Accueil" />
+                <Button fx:id="menu_menus" layoutY="10.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="94.0" text="Menus" />
+                <Button fx:id="menu_consommation" layoutX="78.0" layoutY="10.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" text="Consommation" />
+                <Button fx:id="menu_listedecourse" layoutX="152.0" layoutY="10.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="161.0" text="Liste de course" />
+                <Button fx:id="menu_partage" layoutX="227.0" layoutY="10.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="97.0" text="Partage" />
+            </children>
+        </HBox>
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <TableView fx:id="tabPartage" layoutX="66.0" layoutY="30.0" prefHeight="425.0" prefWidth="1112.0">
+               <columns>
+                  <TableColumn fx:id="colUtilisateurs" prefWidth="284.68536376953125" text="Utilisateurs" />
+                  <TableColumn fx:id="colMails" prefWidth="553.314697265625" text="Mails" />
+               </columns>
+            </TableView>
+            <Label alignment="CENTER" layoutX="71.0" layoutY="468.0" style="&#10;" text="Nouvel Utilisateur :" textAlignment="CENTER" textFill="#404040" wrapText="false">
+               <font>
+                  <Font name="Avenir Book" size="48.0" />
+               </font>
+            </Label>
+            <TextField fx:id="textNom" layoutX="201.0" layoutY="590.0" prefHeight="25.0" prefWidth="157.0" />
+            <Button fx:id="buttonAjouter" layoutX="977.0" layoutY="572.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="205.0" text="Ajouter">
+               <font>
+                  <Font size="36.0" />
+               </font></Button>
+            <Label alignment="CENTER" layoutX="75.0" layoutY="581.0" style="&#10;" text="Nom" textAlignment="CENTER" textFill="#404040" wrapText="false">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <TextField fx:id="textMail" layoutX="722.0" layoutY="588.0" prefHeight="25.0" prefWidth="157.0" />
+            <Label alignment="CENTER" layoutX="418.0" layoutY="580.0" style="&#10;" text="Adresse e-mail" textAlignment="CENTER" textFill="#404040" wrapText="false">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+  </children>
+</VBox>

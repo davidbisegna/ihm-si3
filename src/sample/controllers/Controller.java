@@ -15,6 +15,7 @@ import org.json.simple.parser.ParseException;
 import sample.Main;
 import sample.ViewMenus;
 import sample.models.ModelMenu;
+import sample.models.ModelUtilisateur;
 
 
 import java.io.FileNotFoundException;
@@ -39,6 +40,9 @@ public class Controller {
     @FXML
     protected Button menu_consommation;
 
+    @FXML
+    protected Button menu_partage;
+
 
     @FXML
     public void initialize(){
@@ -46,6 +50,7 @@ public class Controller {
         menu_listedecourse.setOnAction(createLoadPageEvent("../"+ViewMenus.XML_LISTECOURSEVALIDATION));
         menu_consommation.setOnAction(createLoadPageEvent("../"+ViewMenus.XML_CONSOMMATION));
         menu_menus.setOnAction(createLoadPageEvent("../"+ViewMenus.XML_MENUAFFICHAGE));
+        menu_partage.setOnAction(createLoadPageEvent("../"+ViewMenus.XML_PARTAGE));
     }
 
     protected void loadPage(ActionEvent event, String pagePath) throws IOException{
@@ -76,8 +81,12 @@ public class Controller {
 
     public static void initDatas(){
         List<ModelMenu> menus = getMenusFromJSON();
+        List<ModelUtilisateur> users = getUtilisateursFromJSON();
         for(ModelMenu menu : menus){
             Main.listMenus.add_menu(new ModelMenu(menu.getNomMenu(), menu.getEntree(), menu.getPlat(), menu.getDessert(), menu.getPrix(),menu.getCalories()));
+        }
+        for (ModelUtilisateur user : users){
+            Main.listeUtilisateurs.add_user(new ModelUtilisateur(user.getNom(),user.getMail()));
         }
     }
 
@@ -138,6 +147,59 @@ public class Controller {
             }
             menus.put("Menus", array);
             writer.write(menus.toJSONString());
+            writer.flush();
+            writer.close();
+        } catch (Exception e){
+            System.err.println("Erreur : " + e);
+        }
+    }
+
+    private static List<ModelUtilisateur> getUtilisateursFromJSON(){
+        List<ModelUtilisateur> parsedUtilisateurs= new ArrayList<>();
+        try{
+            FileReader reader = new FileReader(ViewMenus.JSON_UTILISATEURS);
+
+            JSONParser parser = new JSONParser();
+            JSONObject jsonObject = (JSONObject) parser.parse(reader);
+
+            JSONArray users = (JSONArray) jsonObject.get("Users");
+
+            if(users.isEmpty()){
+                return parsedUtilisateurs;
+            }
+
+            for(Object o : users){
+                JSONObject innerObj = (JSONObject) o;
+                String nom = (String) innerObj.get("Nom");
+                String mail = (String) innerObj.get("Mail");
+
+                parsedUtilisateurs.add(new ModelUtilisateur(nom, mail));
+            }
+
+        } catch (FileNotFoundException e){
+            System.err.println("File not found : " + e.getMessage());
+        } catch(ParseException e){
+            System.err.println("Erreur de parsing : " + e.getMessage());
+        } catch(IOException e){
+            System.err.println("Erreur lors de la lecture des données pré-enregistrée : " + e.getMessage());
+        }
+
+        return parsedUtilisateurs;
+    }
+
+    public static void saveUtilisateursInJSON(){
+        try{
+            FileWriter writer = new FileWriter(ViewMenus.JSON_UTILISATEURS);
+            JSONArray array = new JSONArray();
+            JSONObject users = new JSONObject();
+            for(ModelUtilisateur user: Main.listeUtilisateurs.getUsers()){
+                JSONObject obj = new JSONObject();
+                obj.put("Nom", user.getNom());
+                obj.put("Mail", user.getMail());
+                array.add(obj);
+            }
+            users.put("Users", array);
+            writer.write(users.toJSONString());
             writer.flush();
             writer.close();
         } catch (Exception e){
