@@ -21,6 +21,7 @@ public class ModelMenu {
     private DoubleProperty prix;
     private IntegerProperty calories;
     private Button button;
+    private BooleanProperty warning;
 
     public ModelMenu(String nomMenu, String entree, String plat, String dessert, double prix, int calories){
         this.nomMenu = new SimpleStringProperty(nomMenu);
@@ -29,6 +30,12 @@ public class ModelMenu {
         this.dessert = new SimpleStringProperty(dessert);
         this.prix = new SimpleDoubleProperty(prix);
         this.calories = new SimpleIntegerProperty(calories);
+        this.warning = new SimpleBooleanProperty(false);
+        for(ModelMenu menu : Main.listMenus.getMenus()){
+            if(menu.getNomMenu().equals(nomMenu)){
+                this.warning = new SimpleBooleanProperty(true);
+            }
+        }
         button = new Button("Supprimer");
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -133,9 +140,11 @@ public class ModelMenu {
         return button;
     }
 
-    /*public void setDate(LocalDate date) { this.date = date; }
+    public Boolean isWarning(){ return this.warning.getValue(); }
 
-    public LocalDate getDate() { return this.date; }*/
+    public BooleanProperty warningProperty(){ return this.warning; }
+
+    public void setWarning(Boolean b){ this.warning.setValue(b);}
 
     public void selfRemoveFromObservable(){
         Main.listMenus.remove_menu(this);

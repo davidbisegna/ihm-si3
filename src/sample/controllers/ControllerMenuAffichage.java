@@ -1,6 +1,5 @@
 package sample.controllers;
 
-import javafx.beans.Observable;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -8,18 +7,12 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.*;
 import javafx.util.Callback;
 import sample.Main;
 import sample.models.ModelMenu;
-
-import javax.xml.crypto.Data;
-import java.awt.*;
-import java.awt.print.Book;
-import java.time.LocalDate;
 import java.util.Optional;
 
 import static sample.ViewMenus.XML_CREERMENU;
@@ -70,6 +63,8 @@ public class ControllerMenuAffichage extends Controller {
             }
         });
 
+
+
         ContextMenu contextMenu = new ContextMenu();
 
         MenuItem item1 = new MenuItem("Supprimer");
@@ -100,7 +95,6 @@ public class ControllerMenuAffichage extends Controller {
             public void handle(MouseEvent event) {
                 TableView table = (TableView) event.getSource();
                 selectedMenu = (ModelMenu) table.getSelectionModel().getSelectedItem();
-                System.out.println(selectedMenu);
                 contextMenu.hide();
             }
         });
