@@ -11,6 +11,8 @@ import sample.Main;
 import sample.controllers.Controller;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import java.util.Optional;
 
 public class ModelPlanifiedMenu extends ModelMenu{
@@ -64,7 +66,8 @@ public class ModelPlanifiedMenu extends ModelMenu{
     public StringProperty getDateStringProperty() { return new SimpleStringProperty(this.dateToString()); }
 
     public String dateToString(){
-        return this.date.getDayOfMonth() + " " + this.date.getMonth().toString() + " " + this.date.getYear();
+        LocalDate localDate = LocalDate.of(this.date.getYear(), this.date.getMonth().getValue(), this.date.getDayOfMonth());
+        return localDate.format(DateTimeFormatter.ofPattern("EEEE, dd MMMM, yyyy", Locale.FRENCH));
     }
 
     public void setButton(Button button){
