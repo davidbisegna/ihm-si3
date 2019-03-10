@@ -102,7 +102,6 @@ public class ControllerPartage extends Controller {
             public void handle(MouseEvent event) {
                 TableView table = (TableView) event.getSource();
                 SelectedUser = (ModelUtilisateur) table.getSelectionModel().getSelectedItem();
-                System.out.println(SelectedUser);
                 contextMenu.hide();
             }
         });

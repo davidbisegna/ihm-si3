@@ -11,6 +11,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import sample.controllers.Controller;
 import sample.models.ModelListOfMenus;
+import sample.models.ModelListOfPlanifiedMenus;
 import sample.models.ModelListedesUtilisateurs;
 import sample.models.ModelMenu;
 
@@ -21,11 +22,13 @@ import java.util.List;
 public class Main extends Application {
 
     public static ModelListOfMenus listMenus;
+    public static ModelListOfPlanifiedMenus listPlanifiedMenus;
     public static ModelListedesUtilisateurs listeUtilisateurs;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
         listMenus = new ModelListOfMenus();
+        listPlanifiedMenus = new ModelListOfPlanifiedMenus();
         listeUtilisateurs = new ModelListedesUtilisateurs();
         Controller.initDatas();
         Parent root = FXMLLoader.load(getClass().getResource(ViewMenus.XML_ACCUEIL));
@@ -39,6 +42,7 @@ public class Main extends Application {
     public void stop(){
         Controller.saveMenusInJSON();
         Controller.saveUtilisateursInJSON();
+        Controller.savePlanifiedMenusInJSON();
     }
 
     public static void main(String[] args) {

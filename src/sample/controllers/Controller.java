@@ -6,7 +6,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -15,16 +17,16 @@ import org.json.simple.parser.ParseException;
 import sample.Main;
 import sample.ViewMenus;
 import sample.models.ModelMenu;
+import sample.models.ModelPlanifiedMenu;
 import sample.models.ModelUtilisateur;
 
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import javax.swing.text.View;
+import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Controller {
 
@@ -82,17 +84,25 @@ public class Controller {
     public static void initDatas(){
         List<ModelMenu> menus = getMenusFromJSON();
         List<ModelUtilisateur> users = getUtilisateursFromJSON();
+        List<ModelPlanifiedMenu> planifiedMenus = getPlanifiedMenusFromJSON();
         for(ModelMenu menu : menus){
-            Main.listMenus.add_menu(new ModelMenu(menu.getNomMenu(), menu.getEntree(), menu.getPlat(), menu.getDessert(), menu.getPrix(),menu.getCalories()));
+            Main.listMenus.add_menu(menu);
         }
         for (ModelUtilisateur user : users){
-            Main.listeUtilisateurs.add_user(new ModelUtilisateur(user.getNom(),user.getMail()));
+            Main.listeUtilisateurs.add_user(user);
+        }
+        for (ModelPlanifiedMenu menu : planifiedMenus){
+            Main.listPlanifiedMenus.add_menu(menu);
         }
     }
 
     private static List<ModelMenu> getMenusFromJSON(){
+
         List<ModelMenu> parsedMenus= new ArrayList<>();
         try{
+            File menusFile = new File(ViewMenus.JSON_MENUS);
+            menusFile.createNewFile();
+            // Reading single Menus
             FileReader reader = new FileReader(ViewMenus.JSON_MENUS);
 
             JSONParser parser = new JSONParser();
@@ -105,17 +115,7 @@ public class Controller {
             }
 
             for(Object o : menus){
-                JSONObject innerObj = (JSONObject) o;
-                String nomMenu = (String) innerObj.get("NomMenu");
-                String entree = (String) innerObj.get("Entree");
-                String plat = (String) innerObj.get("Plat");
-                String dessert = (String) innerObj.get("Dessert");
-                Double prix = (Double) innerObj.get("Prix");
-                Long calories = (Long) innerObj.get("Calories");
-                //LocalDate date = LocalDate.parse((String) innerObj.get("Date"));
-                int parsedCalories = calories.intValue();
-
-                parsedMenus.add(new ModelMenu(nomMenu, entree, plat, dessert, prix, parsedCalories));
+                putMenuInList(o, parsedMenus);
             }
 
         } catch (FileNotFoundException e){
@@ -129,6 +129,44 @@ public class Controller {
         return parsedMenus;
     }
 
+
+    private static List<ModelPlanifiedMenu> getPlanifiedMenusFromJSON(){
+        List<ModelMenu> parsedMenus = new ArrayList<>();
+        List<ModelPlanifiedMenu> parsedPlanifiedMenus = new ArrayList<>();
+        try{
+            File menusFile = new File(ViewMenus.JSON_PLANIFIED_MENUS);
+            menusFile.createNewFile();
+            // Reading planified Menus
+            FileReader reader = new FileReader(ViewMenus.JSON_PLANIFIED_MENUS);
+
+            JSONParser parser = new JSONParser();
+            JSONObject jsonObject = (JSONObject) parser.parse(reader);
+
+            JSONArray menus = (JSONArray) jsonObject.get("PlanifiedMenus");
+
+            if(menus.isEmpty()){
+                return parsedPlanifiedMenus;
+            }
+
+            for(Object o : menus){
+                JSONObject innerObj = (JSONObject) o;
+                putMenuInList(o, parsedMenus);
+                LocalDate date = LocalDate.parse((String) innerObj.get("Date"));
+                ModelMenu menu = parsedMenus.get(parsedMenus.size()-1);
+                parsedPlanifiedMenus.add(new ModelPlanifiedMenu(new ModelMenu(menu), date));
+            }
+
+        } catch (FileNotFoundException e){
+            System.err.println("File not found : " + e.getMessage());
+        } catch(ParseException e){
+            System.err.println("Erreur de parsing : " + e.getMessage());
+        } catch(IOException e){
+            System.err.println("Erreur lors de la lecture des données pré-enregistrée : " + e.getMessage());
+        }
+
+        return parsedPlanifiedMenus;
+    }
+
     public static void saveMenusInJSON(){
         try{
             FileWriter writer = new FileWriter(ViewMenus.JSON_MENUS);
@@ -136,13 +174,7 @@ public class Controller {
             JSONObject menus = new JSONObject();
             for(ModelMenu menu : Main.listMenus.getMenus()){
                 JSONObject obj = new JSONObject();
-                obj.put("NomMenu", menu.getNomMenu());
-                obj.put("Entree", menu.getEntree());
-                obj.put("Plat", menu.getPlat());
-                obj.put("Dessert", menu.getDessert());
-                obj.put("Prix", menu.getPrix());
-                obj.put("Calories", menu.getCalories());
-                //obj.put("Date", menu.getDate().toString());
+                putMenuInJSONObject(obj, menu);
                 array.add(obj);
             }
             menus.put("Menus", array);
@@ -152,6 +184,48 @@ public class Controller {
         } catch (Exception e){
             System.err.println("Erreur : " + e);
         }
+    }
+
+    public static void savePlanifiedMenusInJSON(){
+        try{
+            FileWriter writer = new FileWriter(ViewMenus.JSON_PLANIFIED_MENUS);
+            JSONArray array = new JSONArray();
+            JSONObject menus = new JSONObject();
+            for(ModelPlanifiedMenu menu : Main.listPlanifiedMenus.getMenus()){
+                JSONObject obj = new JSONObject();
+                putMenuInJSONObject(obj, menu);
+                obj.put("Date", menu.getDate().toString());
+                array.add(obj);
+            }
+            menus.put("PlanifiedMenus", array);
+            writer.write(menus.toJSONString());
+            writer.flush();
+            writer.close();
+        } catch (Exception e){
+            System.err.println("Erreur : " + e);
+        }
+    }
+
+    public static void putMenuInJSONObject(JSONObject obj, ModelMenu menu){
+        obj.put("NomMenu", menu.getNomMenu());
+        obj.put("Entree", menu.getEntree());
+        obj.put("Plat", menu.getPlat());
+        obj.put("Dessert", menu.getDessert());
+        obj.put("Prix", menu.getPrix());
+        obj.put("Calories", menu.getCalories());
+    }
+
+    public static void putMenuInList(Object o, List<ModelMenu> parsedMenus){
+        JSONObject innerObj = (JSONObject) o;
+        String nomMenu = (String) innerObj.get("NomMenu");
+        String entree = (String) innerObj.get("Entree");
+        String plat = (String) innerObj.get("Plat");
+        String dessert = (String) innerObj.get("Dessert");
+        Double prix = (Double) innerObj.get("Prix");
+        Long calories = (Long) innerObj.get("Calories");
+        int parsedCalories = calories.intValue();
+
+        parsedMenus.add(new ModelMenu(nomMenu, entree, plat, dessert, prix, parsedCalories));
     }
 
     private static List<ModelUtilisateur> getUtilisateursFromJSON(){
@@ -204,6 +278,18 @@ public class Controller {
             writer.close();
         } catch (Exception e){
             System.err.println("Erreur : " + e);
+        }
+    }
+
+    public void remove_menu(ModelMenu menuToDelete){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText("Suppression d'un menu");
+        alert.setContentText("Êtes vous sûr de vouloir supprimer le menu " + menuToDelete.getNomMenu() + " ?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
+            Main.listMenus.remove_menu(menuToDelete);
         }
     }
 }

@@ -23,6 +23,22 @@ public class ModelMenu {
     private Button button;
     private BooleanProperty warning;
 
+    public ModelMenu(ModelMenu menu){
+        this.nomMenu = menu.nomMenuProperty();
+        this.entree = menu.entreeProperty();
+        this.plat = menu.platProperty();
+        this.dessert = menu.dessertProperty();
+        this.prix = menu.prixProperty();
+        this.calories = menu.caloriesProperty();
+        this.warning = menu.warningProperty();
+        for(ModelMenu m : Main.listMenus.getMenus()){
+            if(m.getNomMenu().equals(menu.getNomMenu())){
+                this.warning = new SimpleBooleanProperty(true);
+            }
+        }
+        this.initButton();
+    }
+
     public ModelMenu(String nomMenu, String entree, String plat, String dessert, double prix, int calories){
         this.nomMenu = new SimpleStringProperty(nomMenu);
         this.entree = new SimpleStringProperty(entree);
@@ -36,6 +52,10 @@ public class ModelMenu {
                 this.warning = new SimpleBooleanProperty(true);
             }
         }
+        this.initButton();
+    }
+
+    public void initButton(){
         button = new Button("Supprimer");
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -152,7 +172,7 @@ public class ModelMenu {
 
     @Override
     public String toString(){
-        return this.nomMenu.get() + " " + this.entree.get() + " " + this.plat.get() + " " + this.dessert.get();
+        return this.nomMenu.get();
     }
 
 }

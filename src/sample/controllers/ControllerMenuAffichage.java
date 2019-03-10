@@ -73,7 +73,7 @@ public class ControllerMenuAffichage extends Controller {
             @Override
             public void handle(ActionEvent event) {
                 if(selectedMenu != null) {
-                    remove_selected_menu(selectedMenu);
+                    remove_menu(selectedMenu);
                 }
             }
         });
@@ -112,19 +112,8 @@ public class ControllerMenuAffichage extends Controller {
     @FXML
     public void handleKeyPressed(KeyEvent event){
         if(event.getCode() == KeyCode.DELETE && !Main.listMenus.getMenus().isEmpty() && selectedMenu != null){
-            remove_selected_menu(selectedMenu);
+            remove_menu(selectedMenu);
         }
     }
 
-    public void remove_selected_menu(ModelMenu menuToDelete){
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirmation");
-        alert.setHeaderText("Suppression d'un menu");
-        alert.setContentText("Êtes vous sûr de vouloir supprimer le menu " + selectedMenu.getNomMenu() + " ?");
-
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.OK){
-            Main.listMenus.remove_menu(menuToDelete);
-        }
-    }
 }
