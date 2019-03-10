@@ -10,10 +10,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import sample.controllers.Controller;
-import sample.models.ModelListOfMenus;
-import sample.models.ModelListOfPlanifiedMenus;
-import sample.models.ModelListedesUtilisateurs;
-import sample.models.ModelMenu;
+import sample.models.*;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -24,6 +21,7 @@ public class Main extends Application {
     public static ModelListOfMenus listMenus;
     public static ModelListOfPlanifiedMenus listPlanifiedMenus;
     public static ModelListedesUtilisateurs listeUtilisateurs;
+
 
     @Override
     public void start(Stage primaryStage) throws Exception{

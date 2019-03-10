@@ -15,6 +15,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.shape.Circle;
 import sample.Main;
 import sample.ViewMenus;
+import sample.models.ModelListOfPlanifiedMenus;
 import sample.models.ModelMenu;
 import sample.models.ModelPlanifiedMenu;
 
@@ -25,6 +26,7 @@ import java.util.Optional;
 public class ControllerAccueil extends Controller {
 
     ModelPlanifiedMenu selectedMenu;
+    ModelListOfPlanifiedMenus test = new ModelListOfPlanifiedMenus();
 
     @FXML
     private TableView table_planified_repas;
@@ -50,8 +52,13 @@ public class ControllerAccueil extends Controller {
     @FXML
     private HBox combo_box_layout;
 
+    @FXML
+    private Label labelProchainRepas;
+
     public void initialize(){
         super.initialize();
+        labelProchainRepas.setText(test.nextPlanfiedMenu().getNomMenu());
+
 
         date_new_repas.setDayCellFactory(picker -> new DateCell() {
             public void updateItem(LocalDate date, boolean empty) {
@@ -84,6 +91,7 @@ public class ControllerAccueil extends Controller {
             public void handle(ActionEvent event) {
                 LocalDate date = date_new_repas.getValue();
                 Main.listPlanifiedMenus.add_menu(new ModelPlanifiedMenu(combo_box_repas.getValue(), date));
+                labelProchainRepas.setText(test.nextPlanfiedMenu().getNomMenu());
             }
         });
 
@@ -111,7 +119,9 @@ public class ControllerAccueil extends Controller {
             public void handle(ActionEvent event) {
                 if(selectedMenu != null) {
                     remove_menu(selectedMenu);
+
                 }
+                labelProchainRepas.setText(test.nextPlanfiedMenu().getNomMenu());
             }
         });
 
@@ -150,6 +160,7 @@ public class ControllerAccueil extends Controller {
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK){
             Main.listPlanifiedMenus.remove_menu(menuToDelete);
+
         }
     }
 
