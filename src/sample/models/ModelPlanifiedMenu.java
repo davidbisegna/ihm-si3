@@ -30,7 +30,6 @@ public class ModelPlanifiedMenu extends ModelMenu{
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Confirmation");
                 alert.setHeaderText("Suppression d'un menu");

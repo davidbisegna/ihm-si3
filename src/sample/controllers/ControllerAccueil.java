@@ -3,6 +3,7 @@ package sample.controllers;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -26,7 +27,6 @@ import java.util.Optional;
 public class ControllerAccueil extends Controller {
 
     ModelPlanifiedMenu selectedMenu;
-    ModelListOfPlanifiedMenus test = new ModelListOfPlanifiedMenus();
 
     @FXML
     private TableView table_planified_repas;
@@ -57,8 +57,7 @@ public class ControllerAccueil extends Controller {
 
     public void initialize(){
         super.initialize();
-        labelProchainRepas.setText(test.nextPlanfiedMenu().getNomMenu());
-
+        labelProchainRepas.setText(Main.listPlanifiedMenus.nextPlanifiedMenu().getNomMenu());
 
         date_new_repas.setDayCellFactory(picker -> new DateCell() {
             public void updateItem(LocalDate date, boolean empty) {
@@ -91,7 +90,7 @@ public class ControllerAccueil extends Controller {
             public void handle(ActionEvent event) {
                 LocalDate date = date_new_repas.getValue();
                 Main.listPlanifiedMenus.add_menu(new ModelPlanifiedMenu(combo_box_repas.getValue(), date));
-                labelProchainRepas.setText(test.nextPlanfiedMenu().getNomMenu());
+                labelProchainRepas.setText(Main.listPlanifiedMenus.nextPlanifiedMenu().getNomMenu());
             }
         });
 
@@ -109,6 +108,13 @@ public class ControllerAccueil extends Controller {
             }
         });
 
+        Main.listPlanifiedMenus.getMenus().addListener(new ListChangeListener<ModelPlanifiedMenu>() {
+            @Override
+            public void onChanged(Change<? extends ModelPlanifiedMenu> c) {
+                labelProchainRepas.setText(Main.listPlanifiedMenus.nextPlanifiedMenu().getNomMenu());
+            }
+        });
+
 
         ContextMenu contextMenu = new ContextMenu();
 
@@ -121,7 +127,6 @@ public class ControllerAccueil extends Controller {
                     remove_menu(selectedMenu);
 
                 }
-                labelProchainRepas.setText(test.nextPlanfiedMenu().getNomMenu());
             }
         });
 
@@ -152,6 +157,7 @@ public class ControllerAccueil extends Controller {
     }
 
     public void remove_menu(ModelPlanifiedMenu menuToDelete){
+        System.out.println("test");
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation");
         alert.setHeaderText("Suppression d'un menu");
@@ -160,8 +166,8 @@ public class ControllerAccueil extends Controller {
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK){
             Main.listPlanifiedMenus.remove_menu(menuToDelete);
-
         }
+
     }
 
 

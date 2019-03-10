@@ -28,7 +28,7 @@ public class ModelListOfPlanifiedMenus {
         planifiedMenus.remove(menu);
     }
 
-    public ModelPlanifiedMenu nextPlanfiedMenu(){
+    public ModelPlanifiedMenu nextPlanifiedMenu(){
         ModelPlanifiedMenu nextMenu = ProchainRepas;
         for (ModelPlanifiedMenu currentMenu : Main.listPlanifiedMenus.getMenus()) {
             if (currentMenu.getDate().isBefore(nextMenu.getDate())){
