@@ -48,6 +48,8 @@ public class ModelPlanifiedMenu extends ModelMenu{
         Main.listPlanifiedMenus.remove_menu(this);
     }
 
+    public ModelMenu getMenu() { return this.menu; }
+
     public String getNomMenu() {
         return menu.getNomMenu();
     }
