@@ -9,6 +9,7 @@ import javafx.scene.chart.PieChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import sample.Main;
 import sample.models.ModelMenu;
 import sample.models.ModelPlanifiedMenu;
@@ -33,11 +34,19 @@ public class ControllerConsommation extends Controller{
     @FXML
     private PieChart pieChart;
 
+    @FXML
+    private Label labelCalories;
+
+    @FXML
+    private Label labelPrix;
+
     public void initialize(){
         super.initialize();
         compute_dates_button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                labelCalories.setText("Calories : " + computeSumCalories());
+                labelPrix.setText("Prix : " + computeSumPrices());
                 LocalDate first_date = start_date.getValue();
                 LocalDate last_date = end_date.getValue();
                 if(generateChart(first_date, last_date)){
@@ -101,8 +110,8 @@ public class ControllerConsommation extends Controller{
 
     public float computeSumCalories() {
         float res = 0;
-        ObservableList<ModelMenu> listOfMenus = Main.listMenus.getMenus();
-        for (ModelMenu aMenu : listOfMenus){
+        ObservableList<ModelPlanifiedMenu> listOfMenus = Main.listPlanifiedMenus.getMenus();
+        for (ModelPlanifiedMenu aMenu : listOfMenus){
             res += aMenu.getCalories();
         }
         return res;
@@ -110,8 +119,8 @@ public class ControllerConsommation extends Controller{
 
     public float computeSumPrices() {
         float res = 0;
-        ObservableList<ModelMenu> listOfMenus = Main.listMenus.getMenus();
-        for (ModelMenu aMenu : listOfMenus){
+        ObservableList<ModelPlanifiedMenu> listOfMenus = Main.listPlanifiedMenus.getMenus();
+        for (ModelPlanifiedMenu aMenu : listOfMenus){
             res += aMenu.getPrix();
         }
         return res;

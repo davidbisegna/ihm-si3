@@ -70,7 +70,7 @@
                      <children>
                         <VBox prefHeight="116.0" prefWidth="626.0">
                            <children>
-                              <Label text="Calories">
+                              <Label fx:id="labelCalories" text="Calories">
                                  <font>
                                     <Font size="30.0" />
                                  </font>
@@ -79,7 +79,7 @@
                         </VBox>
                         <VBox prefHeight="122.0" prefWidth="626.0">
                            <children>
-                              <Label text="Prix">
+                              <Label fx:id="labelPrix" text="Prix">
                                  <font>
                                     <Font size="30.0" />
                                  </font>
