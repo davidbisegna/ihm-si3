@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ControllerPartage">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ControllerPartage">
     <children>
         <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="35.0" prefWidth="1280.0" styleClass="nav">
             <children>
@@ -23,31 +23,31 @@
         </HBox>
       <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <TableView fx:id="tabPartage" layoutX="66.0" layoutY="30.0" prefHeight="425.0" prefWidth="1112.0">
+            <TableView fx:id="tabPartage" layoutX="90.0" layoutY="36.0" prefHeight="425.0" prefWidth="1112.0">
                <columns>
                   <TableColumn fx:id="colUtilisateurs" prefWidth="284.68536376953125" text="Utilisateurs" />
                   <TableColumn fx:id="colMails" prefWidth="553.314697265625" text="Mails" />
                </columns>
             </TableView>
-            <Label alignment="CENTER" layoutX="71.0" layoutY="468.0" style="&#10;" text="Nouvel Utilisateur :" textAlignment="CENTER" textFill="#404040" wrapText="false">
+            <Label alignment="CENTER" layoutX="123.0" layoutY="506.0" style="&#10;" text="Nouvel Utilisateur :" textAlignment="CENTER" textFill="#404040" wrapText="false">
                <font>
-                  <Font name="Avenir Book" size="48.0" />
+                  <Font size="28.0" />
                </font>
             </Label>
             <TextField fx:id="textNom" layoutX="201.0" layoutY="590.0" prefHeight="25.0" prefWidth="157.0" />
-            <Button fx:id="buttonAjouter" layoutX="977.0" layoutY="572.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="205.0" text="Ajouter">
+            <Button fx:id="buttonAjouter" layoutX="972.0" layoutY="567.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="193.0" text="Ajouter">
                <font>
-                  <Font size="36.0" />
+                  <Font size="26.0" />
                </font></Button>
-            <Label alignment="CENTER" layoutX="75.0" layoutY="581.0" style="&#10;" text="Nom" textAlignment="CENTER" textFill="#404040" wrapText="false">
+            <Label alignment="CENTER" layoutX="123.0" layoutY="581.0" style="&#10;" text="Nom" textAlignment="CENTER" textFill="#404040" wrapText="false">
                <font>
-                  <Font size="36.0" />
+                  <Font size="27.0" />
                </font>
             </Label>
             <TextField fx:id="textMail" layoutX="722.0" layoutY="588.0" prefHeight="25.0" prefWidth="157.0" />
-            <Label alignment="CENTER" layoutX="418.0" layoutY="580.0" style="&#10;" text="Adresse e-mail" textAlignment="CENTER" textFill="#404040" wrapText="false">
+            <Label alignment="CENTER" layoutX="534.0" layoutY="581.0" style="&#10;" text="Adresse e-mail" textAlignment="CENTER" textFill="#404040" wrapText="false">
                <font>
-                  <Font size="36.0" />
+                  <Font size="27.0" />
                </font>
             </Label>
          </children></AnchorPane>

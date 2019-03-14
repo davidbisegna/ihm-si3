@@ -34,23 +34,23 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="362.0" prefWidth="1280.0">
                      <children>
-                        <Label alignment="CENTER" prefHeight="175.0" prefWidth="478.0" style="&#10;" text="Une liste va étre générée par rapport aux repas déjà enregistrés" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                        <Label alignment="CENTER" prefHeight="131.0" prefWidth="478.0" style="&#10;" text="Une liste va étre générée par rapport aux repas déjà enregistrés" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
                            <font>
                               <Font size="28.0" />
                            </font>
                         </Label>
                      </children>
                   </VBox>
-                  <VBox alignment="CENTER" prefHeight="273.0" prefWidth="1280.0">
+                  <VBox alignment="CENTER" layoutX="10.0" layoutY="221.0" prefHeight="362.0" prefWidth="1280.0">
                      <children>
-                        <Label alignment="CENTER" prefHeight="86.0" prefWidth="584.0" style="&#10;" text="Veuillez entrer un nombre de jours pour lequel la liste de course sera faite" textAlignment="CENTER" textFill="#292929" textOverrun="CLIP" wrapText="true">
+                        <Label alignment="CENTER" prefHeight="130.0" prefWidth="478.0" style="&#10;" text="Veuillez entrer un nombre de jours pour lequel la liste de course sera faite" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
                            <font>
                               <Font size="28.0" />
                            </font>
                         </Label>
                      </children>
                   </VBox>
-                  <VBox alignment="CENTER" prefHeight="353.0" prefWidth="1280.0">
+                  <VBox alignment="CENTER" prefHeight="286.0" prefWidth="1280.0">
                      <children>
                         <TextField fx:id="nb_day_course" prefHeight="25.0" prefWidth="291.0" style="-fx-max-width: 150px;" />
                     <Label alignment="CENTER" style="&#10;" text="Jours" textAlignment="CENTER" textFill="#404040" wrapText="false">
@@ -62,7 +62,7 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="337.0" prefWidth="1280.0">
                      <children>
-                        <Button fx:id="generate_list_button" mnemonicParsing="false" prefHeight="39.0" prefWidth="138.0" text="Valider">
+                        <Button fx:id="generate_list_button" mnemonicParsing="false" prefHeight="39.0" prefWidth="138.0" style="-fx-translate-y: -15;" text="Valider">
                            <font>
                               <Font size="18.0" />
                            </font>

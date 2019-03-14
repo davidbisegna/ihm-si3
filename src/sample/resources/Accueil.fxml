@@ -30,7 +30,7 @@
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="629.0" prefWidth="469.0">
                      <children>
-                        <VBox layoutX="41.0" layoutY="432.0" prefHeight="152.0" prefWidth="323.0">
+                        <VBox layoutX="41.0" layoutY="457.0" prefHeight="152.0" prefWidth="323.0">
                            <children>
                               <HBox prefHeight="76.0" prefWidth="323.0">
                                  <children>
@@ -62,7 +62,7 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <VBox alignment="TOP_CENTER" layoutY="76.0" prefHeight="200.0" prefWidth="379.0">
+                        <VBox alignment="TOP_CENTER" layoutY="76.0" prefHeight="185.0" prefWidth="379.0">
                            <children>
                               <HBox fx:id="combo_box_layout" alignment="CENTER" prefHeight="40.0" prefWidth="379.0">
                                  <children>
@@ -80,18 +80,19 @@
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="44.0" prefWidth="379.0">
                                  <children>
-                                    <Label text="Date : ">
+                                    <Label style="-fx-translate-y: 15px;" text="Date : ">
                                        <font>
                                           <Font size="23.0" />
                                        </font>
                                     </Label>
-                                    <DatePicker fx:id="date_new_repas" prefHeight="26.0" prefWidth="155.0" />
+                                    <DatePicker fx:id="date_new_repas" prefHeight="26.0" prefWidth="155.0" style="-fx-translate-y: 15px;" />
                                  </children>
                               </HBox>
-                              <Button fx:id="button_planify_repas" mnemonicParsing="false" prefHeight="42.0" prefWidth="137.0" text="Planifier ce repas" />
+                              <Button fx:id="button_planify_repas" mnemonicParsing="false" prefHeight="42.0" prefWidth="137.0" style="-fx-translate-y: 35px;" text="Planifier ce repas" />
                            </children>
                         </VBox>
-                        <HBox id="suggestion_menu" alignment="CENTER" layoutX="66.0" layoutY="564.0" prefHeight="64.0" prefWidth="248.0" style="-fx-border-width: 1px; -fx-border-color: black; -fx-border-radius: 10px;">
+                        <VBox layoutY="262.0" prefHeight="1.0" prefWidth="379.0" style="-fx-border-color: #a0a0a0;" />
+                        <HBox id="suggestion_menu" alignment="CENTER" layoutX="66.0" layoutY="584.0" prefHeight="64.0" prefWidth="248.0" style="-fx-border-width: 1px; -fx-border-color: black; -fx-border-radius: 10px;">
                            <children>
                               <Label prefHeight="30.0" prefWidth="189.0" text="Suggestion de Menu">
                                  <font>
@@ -100,7 +101,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox id="prochain_repas" alignment="CENTER" layoutX="67.0" layoutY="297.0" prefHeight="100.0" prefWidth="245.0" style="-fx-border-width: 1px; -fx-border-color: black; -fx-border-radius: 10px;" styleClass="prochain_repas">
+                        <HBox id="prochain_repas" alignment="CENTER" layoutX="67.0" layoutY="319.0" prefHeight="100.0" prefWidth="245.0" style="-fx-border-width: 1px; -fx-border-color: black; -fx-border-radius: 10px;" styleClass="prochain_repas">
                            <children>
                               <Label fx:id="labelProchainRepas">
                                  <font>
@@ -112,12 +113,12 @@
                               <Insets />
                            </opaqueInsets>
                         </HBox>
-                        <Label layoutX="56.0" layoutY="14.0" text="Nouveau Repas" textAlignment="CENTER">
+                        <Label layoutX="93.0" layoutY="14.0" text="Nouveau Repas" textAlignment="CENTER">
                            <font>
-                              <Font size="36.0" />
+                              <Font size="28.0" />
                            </font>
                         </Label>
-                        <Label layoutX="99.0" layoutY="262.0" text="Prochain Repas " textAlignment="CENTER">
+                        <Label layoutX="105.0" layoutY="276.0" text="Prochain Repas " textAlignment="CENTER">
                            <font>
                               <Font size="24.0" />
                            </font>
