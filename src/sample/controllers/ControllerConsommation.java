@@ -63,7 +63,7 @@ public class ControllerConsommation extends Controller{
         int val;
 
         for (ModelPlanifiedMenu aMenu : listOfMenus){
-            if(aMenu.getDate().isAfter(date_begin) && aMenu.getDate().isBefore(date_end)){
+            if(aMenu.getDate().isAfter(date_begin) && aMenu.getDate().isBefore(date_end) || aMenu.getDate().equals(date_begin) || aMenu.getDate().equals(date_end)){
                 if (theMap.containsKey(aMenu.getEntree())) {
                     val = theMap.get(aMenu.getEntree());
                     theMap.put(aMenu.getEntree(), val +1);
