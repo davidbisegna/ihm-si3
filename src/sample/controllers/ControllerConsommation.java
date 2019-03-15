@@ -49,12 +49,7 @@ public class ControllerConsommation extends Controller{
                 labelPrix.setText("Prix : " + computeSumPrices());
                 LocalDate first_date = start_date.getValue();
                 LocalDate last_date = end_date.getValue();
-                if(generateChart(first_date, last_date)){
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Graphique créé");
-                    alert.setHeaderText("Création d'un graphique de consommation");
-                    alert.showAndWait();
-                } else {
+                if(!generateChart(first_date, last_date)){
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Aucun menu disponible");
                     alert.setHeaderText("Création de graphique annulé");
@@ -72,7 +67,7 @@ public class ControllerConsommation extends Controller{
         int val;
 
         for (ModelPlanifiedMenu aMenu : listOfMenus){
-            if(aMenu.getDate().isAfter(date_begin) && aMenu.getDate().isBefore(date_end) || aMenu.getDate().equals(date_begin) || aMenu.getDate().equals(date_end)){
+            if(isMenuInInterval(aMenu)){
                 if (theMap.containsKey(aMenu.getEntree())) {
                     val = theMap.get(aMenu.getEntree());
                     theMap.put(aMenu.getEntree(), val +1);
@@ -112,7 +107,9 @@ public class ControllerConsommation extends Controller{
         float res = 0;
         ObservableList<ModelPlanifiedMenu> listOfMenus = Main.listPlanifiedMenus.getMenus();
         for (ModelPlanifiedMenu aMenu : listOfMenus){
-            res += aMenu.getCalories();
+            if(isMenuInInterval(aMenu)){
+                res += aMenu.getCalories();
+            }
         }
         return res;
     }
@@ -121,8 +118,14 @@ public class ControllerConsommation extends Controller{
         float res = 0;
         ObservableList<ModelPlanifiedMenu> listOfMenus = Main.listPlanifiedMenus.getMenus();
         for (ModelPlanifiedMenu aMenu : listOfMenus){
-            res += aMenu.getPrix();
+            if(isMenuInInterval(aMenu)) {
+                res += aMenu.getPrix();
+            }
         }
         return res;
+    }
+
+    public boolean isMenuInInterval(ModelPlanifiedMenu menu){
+        return menu.getDate().isAfter(start_date.getValue()) && menu.getDate().isBefore(end_date.getValue()) || menu.getDate().equals(start_date.getValue()) || menu.getDate().equals(end_date.getValue());
     }
 }
